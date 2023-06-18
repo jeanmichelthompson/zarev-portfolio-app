@@ -1,0 +1,38 @@
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 450px;
+  padding-bottom: 300px;
+  gap: 100px; /* Adds space between the text and image */
+}
+
+.about-text {
+  flex: 1 1 100%; /* Takes full width */
+  max-width: 500px;
+  padding: 20px;
+  text-align: center; /* Centers the text horizontally */
+  background:rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 20%;
+}
+
+.about-text p {
+  color: lightgray;
+}
+
+.about-image {
+  flex: 1 1 200px; /* Fixed width for the image */
+  max-width: 300px; /* Adjust this value to control the maximum width of the image */
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* Centers the image horizontally */
+  align-items: center; /* Centers the image vertically */
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
