@@ -15,11 +15,17 @@
   text-align: center; /* Centers the text horizontally */
   background:rgba(255,255,255,.02);
   border: 1px solid rgba(255,255,255,.08);
-  border-radius: 20%;
+  border-radius: 15px;
+}
+
+.about-text h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 30px;
 }
 
 .about-text p {
   color: lightgray;
+  font-size: 20px;
 }
 
 .about-image {

@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'EB Garamond', serif;
   text-align: center;
 }
 
@@ -61,11 +61,15 @@ body {
   margin-top: 10px;
   text-align: center;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'EB Garamond', serif;
+}
+
+.carousel__cell-viewcount {
+  font-size: 16px;
 }
 
 .carousel__cell-title {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
 }
 
