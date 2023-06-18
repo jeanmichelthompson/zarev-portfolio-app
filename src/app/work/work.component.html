@@ -1,0 +1,19 @@
+<div class="work-list">
+  <div class="work-content">
+    <h2>Videos</h2>
+    <div class="work-items">
+      <div *ngFor="let item of workItems" class="work-item">
+        <div class="work-item-image">
+          <img [src]="item.image" alt="Work Item Image">
+        </div>
+        <div class="work-item-details">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.viewCount }} views</p>
+          <p>{{ item.likes }} likes</p>
+          <p>Published {{ item.date }}</p>
+          <a [href]="item.url" target="_blank">Link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
