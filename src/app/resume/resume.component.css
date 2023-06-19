@@ -52,3 +52,19 @@
 a {
   text-decoration: none;
 }
+
+@media (max-width: 660px) {
+  .resume-image img {
+    height: 500px;
+  }
+}
+
+@media (max-width: 390px) {
+  .resume-image img {
+    height: 300px;
+  }
+
+  .btn-grad {
+    width: 100px;
+  }
+}

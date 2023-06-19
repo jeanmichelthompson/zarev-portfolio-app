@@ -83,7 +83,7 @@ body {
 }
 
 .arrow-left {
-  left: 22% !important;
+  left: 21.5% !important;
 }
 
 .arrow-right {
@@ -169,4 +169,35 @@ body {
 
 .arrow-left:active {
   transform: translateX(0%) translateY(0%) scale(0.9) rotate(180deg);
+}
+
+
+@media (max-width: 1600px) {
+  .arrow-left {
+    left: 9% !important;
+  }
+
+  .arrow-right {
+    right: 7% !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  .arrow-left {
+    left: 25px !important;
+  }
+
+  .arrow-right {
+    right: 0 !important;
+  }
+}
+
+@media (min-width: 2700px) {
+  .arrow-left {
+    left: 30% !important;
+  }
+
+  .arrow-right {
+    right: 30% !important;
+  }
 }

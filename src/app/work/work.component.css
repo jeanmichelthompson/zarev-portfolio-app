@@ -85,3 +85,44 @@ img {
   background-clip: text;
   -webkit-background-clip: text;
 }
+
+@media (max-width: 840px) {
+  .work-items {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 450px) {
+  img {
+    height: 100px;
+    width: auto;
+  }
+
+  .work-content {
+    min-width: none;
+  }
+
+  .work-item {
+    width: 400px;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .work-item-details {
+    flex-wrap: wrap;
+  }
+
+  .work-item-details h3 {
+    font-size: 14px;
+  }
+
+  .work-item-details p {
+    font-size: 12px;
+  }
+
+  .work-item-details a {
+    font-size: 14px;
+    padding: 0;
+    padding-bottom: 10px;
+  }
+}

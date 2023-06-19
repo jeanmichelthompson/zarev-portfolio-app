@@ -67,3 +67,35 @@ a {
   text-decoration: none; /* Removes underlining */
   color: inherit; /* Inherits the color from the parent element */
 }
+
+@media (max-width: 450px) {
+  .header-container {
+    width: 600px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .header-container h1 {
+    font-size: 40px;
+  }
+
+  .header-container h3 {
+    font-size: 24px;
+  }
+
+  .nav-links {
+    width: 100%;
+  }
+
+  ul {
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+  }
+
+  li {
+    padding: 5px;
+  }
+}
