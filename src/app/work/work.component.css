@@ -47,20 +47,20 @@ a {
 }
 
 .work-item-image {
-  flex: 0 0 100px; /* Adjust the size of the image container */
   margin-right: 20px;
 }
 
 img {
   width: 150px;
-  height: 100%;
+  height: 250px;
 }
 
 .work-item-details {
   display: flex;
+  font-weight: 400;
   flex-direction: column;
   flex: 1;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-right: 20px;
 }
 
@@ -69,14 +69,18 @@ img {
 }
 
 .work-item-details p {
-  color: #888;
+  color: lightgray;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .work-item-details a {
   text-decoration: none;
   text-align: center;
+  font-size: 18px;
   font-weight: bold;
   color: transparent;
+  padding-top: 5px;
   background: linear-gradient(180deg,#fff 0%,rgba(255,255,255,.7) 100%);
   background-clip: text;
   -webkit-background-clip: text;
