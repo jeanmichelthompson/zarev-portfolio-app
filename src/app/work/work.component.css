@@ -60,8 +60,10 @@ img {
   font-weight: 400;
   flex-direction: column;
   flex: 1;
+  bottom: 10px !important;
   margin-left: 10px;
   margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .work-item-details h3 {
@@ -79,7 +81,7 @@ img {
   text-align: center;
   font-size: 18px;
   background-image: linear-gradient(to right, #141E30 0%, #243B55  51%, #141E30  100%);
-  margin: 10px;
+  bottom: 10px !important;
   padding: 15px 45px;
   text-align: center;
   transition: 0.5s;
