@@ -43,9 +43,13 @@
   border-radius: 50%;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 550px) {
   .about-text {
-    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: none;
+    min-width: none;
     height: auto;
   }
 
@@ -54,6 +58,8 @@
   }
 
   .about-text p {
+    margin-left: 130px;
     font-size: 14px;
+    width: 300px;
   }
 }
