@@ -9,12 +9,13 @@ import { WorkItem } from './work.item.model';
 export class WorkComponent {
   workItems: WorkItem[] = [
     {
-      image: 'https://imgur.com/O5fMraf.jpg',
+      image: 'assets/Christening.jpg',
       title: 'Why Navies Waste So Much Champagne',
       viewCount: "10,500,000",
       url: 'https://www.youtube.com/shorts/_WvHX-5zL70',
       likes: "655,000",
       date: "December 15, 2022",
+      embed: "https://www.youtube.com/embed/_WvHX-5zL70",
     },
     {
       image: 'https://i.imgur.com/iZTensz.png',
@@ -23,6 +24,7 @@ export class WorkComponent {
       url: 'https://www.youtube.com/shorts/-31OhFf11kA',
       likes: "400,000",
       date: "March 27, 2023",
+      embed: "https://www.youtube.com/embed/-31OhFf11kA",
     },
     {
       image: 'https://i.imgur.com/HuxFcg0.png',
@@ -31,6 +33,7 @@ export class WorkComponent {
       url: 'https://www.youtube.com/shorts/sf41cui7N_8',
       likes: "130,000",
       date: "March 21, 2023",
+      embed: "https://www.youtube.com/embed/sf41cui7N_8",
     },
     {
       image: 'https://i.imgur.com/hTzbclf.png',
@@ -39,6 +42,7 @@ export class WorkComponent {
       url: 'https://www.youtube.com/shorts/olzzWXpM-tM',
       likes: "87,000",
       date: "February 21, 2023",
+      embed: "https://www.youtube.com/embed/olzzWXpM-tM",
     },
     {
       image: 'https://i.imgur.com/4OMFo5Z.png',
@@ -47,6 +51,7 @@ export class WorkComponent {
       url: 'https://www.youtube.com/shorts/wZdcIhBVxdI',
       likes: "71,000",
       date: "May 1, 2023",
+      embed: "https://www.youtube.com/embed/wZdcIhBVxdI",
     },
     {
       image: 'https://i.imgur.com/P2sUiUU.png',
@@ -55,6 +60,7 @@ export class WorkComponent {
       url: 'https://www.youtube.com/shorts/F8RYyYPy3ds',
       likes: "75,000",
       date: "April 27, 2023",
+      embed: "https://www.youtube.com/embed/F8RYyYPy3ds",
     },
     {
       image: 'https://i.imgur.com/FGo15h1.png',
@@ -63,6 +69,7 @@ export class WorkComponent {
       url: 'https://www.youtube.com/shorts/vcgV2_vyW7Y',
       likes: "33,000",
       date: "April 10, 2023",
+      embed: "https://www.youtube.com/embed/vcgV2_vyW7Y",
     },
     {
       image: 'https://i.imgur.com/xCS1svg.png',
@@ -71,6 +78,7 @@ export class WorkComponent {
       url: 'https://www.youtube.com/shorts/QdsHI6TsV_s',
       likes: "32,000",
       date: "April 19, 2023",
+      embed: "https://www.youtube.com/embed/QdsHI6TsV_s",
     },
     {
       image: 'https://i.imgur.com/CWXHgxH.png',
@@ -79,6 +87,7 @@ export class WorkComponent {
       url: 'https://www.youtube.com/shorts/-DQWuAkYHj0',
       likes: "18,000",
       date: "February 28, 2023",
+      embed: "https://www.youtube.com/embed/-DQWuAkYHj0",
     },
   ];
 }

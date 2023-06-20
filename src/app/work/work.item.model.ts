@@ -5,4 +5,5 @@ export interface WorkItem {
   likes: string;
   date: string;
   url: string;
+  embed: string;
 }
