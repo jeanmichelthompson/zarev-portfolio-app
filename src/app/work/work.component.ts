@@ -18,7 +18,7 @@ export class WorkComponent {
       embed: "https://www.youtube.com/embed/_WvHX-5zL70",
     },
     {
-      image: 'https://i.imgur.com/iZTensz.png',
+      image: 'assets/Swinging.png',
       title: 'Swinging Explosives',
       viewCount: "8,600,000",
       url: 'https://www.youtube.com/shorts/-31OhFf11kA',
@@ -27,7 +27,7 @@ export class WorkComponent {
       embed: "https://www.youtube.com/embed/-31OhFf11kA",
     },
     {
-      image: 'https://i.imgur.com/HuxFcg0.png',
+      image: 'assets/CrashingPlanes.png',
       title: 'Crashing Airplanes For Science',
       viewCount: "2,400,000",
       url: 'https://www.youtube.com/shorts/sf41cui7N_8',
@@ -36,7 +36,7 @@ export class WorkComponent {
       embed: "https://www.youtube.com/embed/sf41cui7N_8",
     },
     {
-      image: 'https://i.imgur.com/hTzbclf.png',
+      image: 'assets/Carl.png',
       title: 'Carl: The Killer of Tanks',
       viewCount: "1,200,000",
       url: 'https://www.youtube.com/shorts/olzzWXpM-tM',
@@ -45,7 +45,7 @@ export class WorkComponent {
       embed: "https://www.youtube.com/embed/olzzWXpM-tM",
     },
     {
-      image: 'https://i.imgur.com/4OMFo5Z.png',
+      image: 'assets/BlowingUpSuits.png',
       title: 'Blowing Up a Suit For Science',
       viewCount: "1,100,000",
       url: 'https://www.youtube.com/shorts/wZdcIhBVxdI',
@@ -54,7 +54,7 @@ export class WorkComponent {
       embed: "https://www.youtube.com/embed/wZdcIhBVxdI",
     },
     {
-      image: 'https://i.imgur.com/P2sUiUU.png',
+      image: 'assets/RobotArm.png',
       title: 'Moving Your Arm With Your Brain',
       viewCount: "730,000",
       url: 'https://www.youtube.com/shorts/F8RYyYPy3ds',
@@ -63,7 +63,7 @@ export class WorkComponent {
       embed: "https://www.youtube.com/embed/F8RYyYPy3ds",
     },
     {
-      image: 'https://i.imgur.com/FGo15h1.png',
+      image: 'assets/IceClimbing.png',
       title: 'Clinging to a Wall of Ice',
       viewCount: "535,000",
       url: 'https://www.youtube.com/shorts/vcgV2_vyW7Y',
@@ -72,7 +72,7 @@ export class WorkComponent {
       embed: "https://www.youtube.com/embed/vcgV2_vyW7Y",
     },
     {
-      image: 'https://i.imgur.com/xCS1svg.png',
+      image: 'assets/BubbleBath.png',
       title: 'Firefighter Bubble Bath',
       viewCount: "400,000",
       url: 'https://www.youtube.com/shorts/QdsHI6TsV_s',
@@ -81,7 +81,7 @@ export class WorkComponent {
       embed: "https://www.youtube.com/embed/QdsHI6TsV_s",
     },
     {
-      image: 'https://i.imgur.com/CWXHgxH.png',
+      image: 'assets/BunkersOnSled.png',
       title: 'Bunkers on Sled are Bonkers!',
       viewCount: "330,000",
       url: 'https://www.youtube.com/shorts/-DQWuAkYHj0',

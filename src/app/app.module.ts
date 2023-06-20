@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { WorkComponent } from './work/work.component';
 import { ResumeComponent } from './resume/resume.component';
 import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ContactComponent } from './contact/contact.component';
     WorkComponent,
     ResumeComponent,
     ContactComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

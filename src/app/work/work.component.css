@@ -140,18 +140,25 @@ img {
 }
 
 @media (max-width: 400px) {
+
   img {
     display: none;
   }
 
   .work-item-details {
     min-width: none;
+    min-height: none;
     padding: 0;
     margin: 0;
   }
 
   .work-item-image {
     margin: 0;
+  }
+
+  img {
+    width: 100px;
+    height: 150px;
   }
 
   .work-item-details h3 {

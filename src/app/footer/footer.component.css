@@ -1,0 +1,35 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100vw;
+  height: 50px;
+  backdrop-filter: blur(16px);
+  background: rgba(3,0,20,.08);
+  font-family: 'EB Garamond', serif;
+  border-top: 1px solid rgba(255,255,255,.05);
+  padding-bottom: 20px;
+  padding-top: 30px;
+  /* border: 1px dashed red; */
+}
+
+.footer-container h3 {
+  color: transparent;
+  font-size: 16px;
+  background: linear-gradient(180deg,#fff 0%,rgba(255,255,255,.7) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.footer-container p {
+  font-family: Roboto, sans-serif;
+  color: gray;
+}
+
+@media (max-width: 560px) {
+  .footer-container {
+    width: 600px;
+  }
+}
