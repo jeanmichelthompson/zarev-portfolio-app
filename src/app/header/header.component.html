@@ -5,7 +5,7 @@
       <li routerLink="/work">Work</li>
       <li routerLink="/resume">Resume</li>
       <li routerLink="/contact">Contact</li>
-      <a target="_blank"><li>Blog</li></a>
+      <li><a target="_blank" (mouseenter)="showComingSoon = true" (mouseleave)="showComingSoon = false">{{ showComingSoon ? 'Coming Soon!' : 'Blog' }}</a></li>
     </ul>
   </div>
   <h1>Viktor Zarev</h1>

@@ -63,11 +63,6 @@ li {
   -webkit-background-clip: text;
 }
 
-a {
-  text-decoration: none; /* Removes underlining */
-  color: inherit; /* Inherits the color from the parent element */
-}
-
 @media (max-width: 550px) {
   .header-container {
     width: 600px;
