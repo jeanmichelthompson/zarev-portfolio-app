@@ -129,9 +129,11 @@ export class CarouselBComponent {
         console.log(this.selectedIndex);
         carousel.style.transition = 'none';
         this.rotateCarousel();
+        this.removeTransitionEffect(); // Disable opacity fade during silent shift
         setTimeout(() => {
           carousel.style.transition = '';
           this.isAnimating = false;
+          this.restoreTransitionEffect(); // Restore opacity fade after the shift
         }, 10);
       }, 900);
     } else {
@@ -159,9 +161,11 @@ export class CarouselBComponent {
         console.log(this.selectedIndex);
         carousel.style.transition = 'none';
         this.rotateCarousel();
+        this.removeTransitionEffect(); // Disable opacity fade during silent shift
         setTimeout(() => {
           carousel.style.transition = '';
           this.isAnimating = false;
+          this.restoreTransitionEffect(); // Restore opacity fade after the shift
         }, 10);
       }, 900);
     } else {
@@ -170,6 +174,34 @@ export class CarouselBComponent {
       }, 900);
     }
     this.rotateCarousel();
+  }
+
+  removeTransitionEffect() {
+    const cells = this.carousel.nativeElement.querySelectorAll('.carousel__cell');
+
+    for (let i = 0; i < cells.length; i++) {
+      const cell = cells[i];
+      const img = cell.querySelector('img');
+      const text = cell.querySelector('div');
+
+      // Remove transition effect by setting transition property to 'none'
+      img.style.transition = 'none';
+      text.style.transition = 'none';
+    }
+  }
+
+  restoreTransitionEffect() {
+    const cells = this.carousel.nativeElement.querySelectorAll('.carousel__cell');
+
+    for (let i = 0; i < cells.length; i++) {
+      const cell = cells[i];
+      const img = cell.querySelector('img');
+      const text = cell.querySelector('div');
+
+      // Restore transition effect by clearing the transition property
+      img.style.transition = '';
+      text.style.transition = '';
+    }
   }
 
   changeCarousel() {
@@ -220,17 +252,16 @@ export class CarouselBComponent {
         Math.abs(this.selectedIndex + totalCells - i)
       );
 
-      // Set the opacity of the image based on the distance
-      if (distance === 0) {
-        img.style.opacity = 1;
-        text.style.opacity = 1;
-      } else if (distance === 1) {
-        img.style.opacity = 0.6;
-        text.style.opacity = 0.6;
-      } else {
-        img.style.opacity = 0;
-        text.style.opacity = 0;
-      }
+      // Calculate the opacity based on the distance
+      const opacity = distance === 0 ? 1 : (distance === 1 ? 0.6 : 0);
+
+      // Apply the transition effect
+      img.style.transition = 'opacity 0.5s ease-out'; // Adjust the duration and easing as needed
+      text.style.transition = 'opacity 0.5s ease-out'; // Adjust the duration and easing as needed
+
+      // Set the opacity of the image and text
+      img.style.opacity = opacity.toString();
+      text.style.opacity = opacity.toString();
     }
   }
 
