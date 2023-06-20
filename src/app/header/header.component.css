@@ -63,6 +63,12 @@ li {
   -webkit-background-clip: text;
 }
 
+li:hover {
+  background: white;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
 @media (max-width: 550px) {
   .header-container {
     width: 600px;

@@ -50,6 +50,7 @@ body {
 }
 
 .carousel__cell img {
+  cursor: pointer;
   max-width: 300px;
   width: auto;
   min-height: 500px;
