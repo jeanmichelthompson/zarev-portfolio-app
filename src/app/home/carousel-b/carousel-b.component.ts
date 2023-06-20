@@ -1,6 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CarouselItem } from './carousel.item.model';
 
+import { CarouselStateService } from './carousel-state.service';
+
 @Component({
   selector: 'app-carousel-b',
   templateUrl: './carousel-b.component.html',
@@ -64,6 +66,7 @@ export class CarouselBComponent {
     },
   ];
 
+  @ViewChild('carouselContainer') carouselContainer: ElementRef;
   @ViewChild('carousel') carousel: ElementRef;
   @ViewChild('cellsRange') cellsRange: ElementRef;
   @ViewChild('prevButton') prevButton: ElementRef;
@@ -81,7 +84,7 @@ export class CarouselBComponent {
   theta: number;
   isAnimating: boolean;
 
-  constructor() {
+  constructor(private carouselStateService: CarouselStateService) {
     const firstItem = this.carouselItems[0];
     const secondItem = this.carouselItems[1];
     const secondToLastItem = this.carouselItems[this.carouselItems.length - 2];
@@ -99,6 +102,8 @@ export class CarouselBComponent {
   }
 
   ngAfterViewInit() {
+    const fadeInState = this.carouselStateService.getFadeInState();
+
     if (this.carousel && this.carousel.nativeElement) {
       this.cellWidth = this.carousel.nativeElement.offsetWidth;
       this.cellHeight = this.carousel.nativeElement.offsetHeight;
@@ -110,6 +115,12 @@ export class CarouselBComponent {
     }
 
     this.changeCarousel();
+
+    setTimeout(() => {
+      const carouselContainer = this.carouselContainer.nativeElement;
+      carouselContainer.style.transition = ''
+      carouselContainer.style.opacity = '1';
+    }, 310);
   }
 
   onPrevButtonClick() {

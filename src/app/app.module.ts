@@ -6,25 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
-import { CarouselBComponent } from './home/carousel-b/carousel-b.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './home/about/about.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { WorkComponent } from './work/work.component';
-import { ResumeComponent } from './resume/resume.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomeModule } from './home/home.module';
+import { WorkModule } from './work/work.module';
+import { ResumeModule } from './resume/resume.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CarouselBComponent,
-    HomeComponent,
-    AboutComponent,
-    WorkComponent,
-    ResumeComponent,
     ContactComponent,
     FooterComponent,
   ],
@@ -35,6 +28,9 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     MatButtonModule,
     MatIconModule,
+    HomeModule,
+    WorkModule,
+    ResumeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
