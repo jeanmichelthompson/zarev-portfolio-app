@@ -2,6 +2,8 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CarouselItem } from './carousel.item.model';
 
 import { CarouselStateService } from './carousel-state.service';
+import { YoutubeService } from 'src/app/youtube.service';
+
 
 @Component({
   selector: 'app-carousel-b',
@@ -13,56 +15,82 @@ export class CarouselBComponent {
     {
       image: 'assets/Christening.jpg',
       title: 'Why Navies Waste So Much Champagne',
-      viewCount: "10,500,000",
-      url: 'https://www.youtube.com/shorts/_WvHX-5zL70'
+      viewCount: "11,400,000",
+      url: 'https://www.youtube.com/shorts/_WvHX-5zL70',
+      videoID: "_WvHX-5zL70",
+      likes: "650,000",
     },
     {
       image: 'assets/Swinging.png',
       title: 'Swinging Explosives',
       viewCount: "8,600,000",
-      url: 'https://www.youtube.com/shorts/-31OhFf11kA'
+      url: 'https://www.youtube.com/shorts/-31OhFf11kA',
+      videoID: "-31OhFf11kA",
+      likes: "400,000",
     },
     {
       image: 'assets/Carl.png',
       title: 'Carl: The Killer of Tanks',
       viewCount: "1,200,000",
-      url: 'https://www.youtube.com/shorts/olzzWXpM-tM'
+      url: 'https://www.youtube.com/shorts/olzzWXpM-tM',
+      videoID: "olzzWXpM-tM",
+      likes: "90,000",
     },
     {
-      image: 'assets/BunkersOnSled.png',
-      title: 'Bunkers on Sled are Bonkers!',
-      viewCount: "330,000",
-      url: 'https://www.youtube.com/shorts/-DQWuAkYHj0'
+      image: 'assets/Howitzer.png',
+      title: 'Installing a Howitzer on a Cargo Plane',
+      viewCount: "1,000,000",
+      url: 'https://www.youtube.com/watch?v=HSfdwcUJOHM&ab_channel=NotWhatYouThink',
+      videoID: "HSfdwcUJOHM",
+      likes: "15,000",
     },
     {
       image: 'assets/BubbleBath.png',
       title: 'Firefighter Bubble Bath',
       viewCount: "400,000",
-      url: 'https://www.youtube.com/shorts/QdsHI6TsV_s'
+      url: 'https://www.youtube.com/shorts/QdsHI6TsV_s',
+      videoID: "QdsHI6TsV_s",
+      likes: "32,000",
+    },
+    {
+      image: 'assets/BunkersOnSled.png',
+      title: 'Bunkers on Sled are Bonkers!',
+      viewCount: "330,000",
+      url: 'https://www.youtube.com/shorts/-DQWuAkYHj0',
+      videoID: "-DQWuAkYHj0",
+      likes: "18,000",
     },
     {
       image: 'assets/IceClimbing.png',
       title: 'Clinging to a Wall of Ice',
       viewCount: "535,000",
-      url: 'https://www.youtube.com/shorts/vcgV2_vyW7Y'
+      url: 'https://www.youtube.com/shorts/vcgV2_vyW7Y',
+      videoID: "vcgV2_vyW7Y",
+      likes: "33,000",
     },
     {
       image: 'assets/RobotArm.png',
       title: 'Moving Your Arm With Your Brain',
       viewCount: "730,000",
-      url: 'https://www.youtube.com/shorts/F8RYyYPy3ds'
+      url: 'https://www.youtube.com/shorts/F8RYyYPy3ds',
+      videoID: "F8RYyYPy3ds",
+      likes: "75,000",
     },
     {
       image: 'assets/BlowingUpSuits.png',
       title: 'Blowing Up a Suit For Science',
       viewCount: "1,100,000",
-      url: 'https://www.youtube.com/shorts/wZdcIhBVxdI'
+      url: 'https://www.youtube.com/shorts/wZdcIhBVxdI',
+      videoID: "wZdcIhBVxdI",
+      likes: "71,000",
     },
     {
       image: 'assets/CrashingPlanes.png',
       title: 'Crashing Airplanes For Science',
       viewCount: "2,400,000",
-      url: 'https://www.youtube.com/shorts/sf41cui7N_8'
+      url: 'https://www.youtube.com/shorts/sf41cui7N_8',
+      videoID: "sf41cui7N_8",
+      likes: "130,000",
     },
   ];
 
@@ -84,7 +112,7 @@ export class CarouselBComponent {
   theta: number;
   isAnimating: boolean;
 
-  constructor(private carouselStateService: CarouselStateService) {
+  constructor(private carouselStateService: CarouselStateService, private youtubeService: YoutubeService) {
     const firstItem = this.carouselItems[0];
     const secondItem = this.carouselItems[1];
     const secondToLastItem = this.carouselItems[this.carouselItems.length - 2];
@@ -99,6 +127,28 @@ export class CarouselBComponent {
     ];
 
     this.carouselItems = duplicatedItems;
+  }
+
+  private updateVideoStats(videoId: string): void {
+    this.youtubeService.getViewCount(videoId).subscribe(viewCount => {
+      const item = this.carouselItems.find(obj => obj.videoID === videoId);
+      if (item) {
+        item.viewCount = Number(viewCount).toLocaleString();
+      }
+    });
+
+    this.youtubeService.getLikeCount(videoId).subscribe(likeCount => {
+      const item = this.carouselItems.find(obj => obj.videoID === videoId);
+      if (item) {
+        item.likes = Number(likeCount).toLocaleString();
+      }
+    });
+  }
+
+  ngOnInit(): void {
+    for (const item of this.carouselItems) {
+      this.updateVideoStats(item.videoID);
+    }
   }
 
   ngAfterViewInit() {
