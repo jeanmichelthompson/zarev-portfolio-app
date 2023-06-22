@@ -115,19 +115,26 @@ export class WorkComponent {
   ];
 
   private updateVideoStats(videoId: string): void {
-    this.youtubeService.getViewCount(videoId).subscribe(viewCount => {
+    // Check if the video stats are already in cache
+    if (this.youtubeService.videoStatsCache.hasOwnProperty(videoId)) {
+      const videoStats = this.youtubeService.videoStatsCache[videoId];
       const item = this.workItems.find(obj => obj.videoID === videoId);
       if (item) {
-        item.viewCount = Number(viewCount).toLocaleString();
+        item.viewCount = Number(videoStats.viewCount).toLocaleString();
+        item.likes = Number(videoStats.likeCount).toLocaleString();
+        console.log('Item found in cache')
       }
-    });
-
-    this.youtubeService.getLikeCount(videoId).subscribe(likeCount => {
-      const item = this.workItems.find(obj => obj.videoID === videoId);
-      if (item) {
-        item.likes = Number(likeCount).toLocaleString();
-      }
-    });
+    } else {
+      // Fetch the video stats from the API and update the cache
+      this.youtubeService.getVideoStats(videoId).subscribe(videoStats => {
+        const item = this.workItems.find(obj => obj.videoID === videoId);
+        if (item) {
+          item.viewCount = Number(videoStats.viewCount).toLocaleString();
+          item.likes = Number(videoStats.likeCount).toLocaleString();
+          console.log('Item not found in cache')
+        }
+      });
+    }
   }
 
   ngOnInit(): void {
