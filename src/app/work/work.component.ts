@@ -122,7 +122,6 @@ export class WorkComponent {
       if (item) {
         item.viewCount = Number(videoStats.viewCount).toLocaleString();
         item.likes = Number(videoStats.likeCount).toLocaleString();
-        console.log('Item found in cache')
       }
     } else {
       // Fetch the video stats from the API and update the cache
@@ -131,7 +130,6 @@ export class WorkComponent {
         if (item) {
           item.viewCount = Number(videoStats.viewCount).toLocaleString();
           item.likes = Number(videoStats.likeCount).toLocaleString();
-          console.log('Item not found in cache')
         }
       });
     }
