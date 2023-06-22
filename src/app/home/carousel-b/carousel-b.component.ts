@@ -101,6 +101,7 @@ export class CarouselBComponent {
   @ViewChild('nextButton') nextButton: ElementRef;
   @ViewChild('orientationRadios') orientationRadios: ElementRef;
   @ViewChild('scene') scene: ElementRef;
+  @ViewChild('title') title: ElementRef;
 
   selectedIndex: number = 2;
   cellCount: number;
@@ -111,6 +112,7 @@ export class CarouselBComponent {
   radius: number;
   theta: number;
   isAnimating: boolean;
+  isLoaded: boolean = false;
 
   constructor(private carouselStateService: CarouselStateService, private youtubeService: YoutubeService) {
     const firstItem = this.carouselItems[0];
@@ -146,6 +148,8 @@ export class CarouselBComponent {
   }
 
   ngOnInit(): void {
+    this.selectedIndex = this.carouselStateService.getSelectedItemIndex();
+
     for (const item of this.carouselItems) {
       this.updateVideoStats(item.videoID);
     }
@@ -153,6 +157,10 @@ export class CarouselBComponent {
 
   ngAfterViewInit() {
     const fadeInState = this.carouselStateService.getFadeInState();
+    console.log(fadeInState);
+    const carouselContainer = this.carouselContainer.nativeElement;
+    const carousel = this.carousel.nativeElement;
+    const title = this.title.nativeElement;
 
     if (this.carousel && this.carousel.nativeElement) {
       this.cellWidth = this.carousel.nativeElement.offsetWidth;
@@ -166,11 +174,19 @@ export class CarouselBComponent {
 
     this.changeCarousel();
 
-    setTimeout(() => {
-      const carouselContainer = this.carouselContainer.nativeElement;
-      carouselContainer.style.transition = ''
+    if (fadeInState == false) {
+      carouselContainer.style.transition = '';
       carouselContainer.style.opacity = '1';
-    }, 310);
+      this.carouselStateService.setFadeInState(true);
+    } else {
+      carouselContainer.classList.add('no-transition');
+      carouselContainer.style.transition = 'none';
+      carouselContainer.style.opacity = '1';
+    }
+    setTimeout(() => {
+      carousel.classList.add('one-second-transform');
+      this.isLoaded = true;
+    }, 500);
   }
 
   onPrevButtonClick() {
@@ -181,6 +197,7 @@ export class CarouselBComponent {
     this.isAnimating = true;
     this.selectedIndex = (this.selectedIndex - 1 + this.carouselItems.length) % this.carouselItems.length;
     console.log(this.selectedIndex);
+    this.carouselStateService.setSelectedItemIndex(this.selectedIndex);
     const carousel = this.carousel.nativeElement;
 
     // If the index is at the beginning of the array, silently shift it to the end
@@ -213,6 +230,7 @@ export class CarouselBComponent {
     this.isAnimating = true;
     this.selectedIndex = (this.selectedIndex + 1) % this.carouselItems.length;
     console.log(this.selectedIndex);
+    this.carouselStateService.setSelectedItemIndex(this.selectedIndex);
     const carousel = this.carousel.nativeElement;
 
     // If the index is at the end of the array, silently shift it to the beginning
@@ -239,6 +257,7 @@ export class CarouselBComponent {
 
   removeTransitionEffect() {
     const cells = this.carousel.nativeElement.querySelectorAll('.carousel__cell');
+    const carousel = this.carousel.nativeElement;
 
     for (let i = 0; i < cells.length; i++) {
       const cell = cells[i];
@@ -246,6 +265,7 @@ export class CarouselBComponent {
       const text = cell.querySelector('div');
 
       // Remove transition effect by setting transition property to 'none'
+      carousel.classList.add('no-transition');
       img.style.transition = 'none';
       text.style.transition = 'none';
     }
@@ -253,6 +273,7 @@ export class CarouselBComponent {
 
   restoreTransitionEffect() {
     const cells = this.carousel.nativeElement.querySelectorAll('.carousel__cell');
+    const carousel = this.carousel.nativeElement;
 
     for (let i = 0; i < cells.length; i++) {
       const cell = cells[i];
@@ -260,6 +281,7 @@ export class CarouselBComponent {
       const text = cell.querySelector('div');
 
       // Restore transition effect by clearing the transition property
+      carousel.classList.remove('no-transition');
       img.style.transition = '';
       text.style.transition = '';
     }
@@ -294,6 +316,7 @@ export class CarouselBComponent {
   rotateCarousel() {
     const angle = this.theta * this.selectedIndex * -1;
     const carousel = this.carousel.nativeElement;
+    const fadeInState = this.carouselStateService.getFadeInState();
 
     if (this.carousel && this.carousel.nativeElement) {
       carousel.style.transform = 'translateZ(' + (-this.radius) + 'px) ' + this.rotateFn + '(' + angle + 'deg)';
@@ -315,10 +338,25 @@ export class CarouselBComponent {
 
       // Calculate the opacity based on the distance
       const opacity = distance === 0 ? 1 : (distance === 1 ? 0.6 : 0);
-
-      // Apply the transition effect
-      img.style.transition = 'opacity 0.5s ease-out'; // Adjust the duration and easing as needed
-      text.style.transition = 'opacity 0.5s ease-out'; // Adjust the duration and easing as needed
+      if (fadeInState == false) {
+        if (distance <= 2) {
+          //   img.style.transition = 'opacity 0.5s ease-out'; // Adjust the duration and easing as needed
+            text.style.transition = 'opacity 0.5s ease-out'; // Adjust the duration and easing as needed
+          } else {
+          //   img.style.transition = 'none';
+            text.style.transition = 'none';
+          }
+      } else {
+        setTimeout (() => {
+          if (distance <= 2) {
+            //   img.style.transition = 'opacity 0.5s ease-out'; // Adjust the duration and easing as needed
+              text.style.transition = 'opacity 0.5s ease-out'; // Adjust the duration and easing as needed
+            } else {
+            //   img.style.transition = 'none';
+              text.style.transition = 'none';
+            }
+        }, 500)
+      }
 
       // Set the opacity of the image and text
       img.style.opacity = opacity.toString();

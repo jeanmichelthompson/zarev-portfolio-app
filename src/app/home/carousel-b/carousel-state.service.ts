@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CarouselStateService {
-  private isFadedIn: boolean = false;
+  isFadedIn: boolean = false;
+  selectedItemIndex: number = 2; // Default selected index
 
   constructor() {}
 
@@ -14,5 +15,13 @@ export class CarouselStateService {
 
   setFadeInState(state: boolean): void {
     this.isFadedIn = state;
+  }
+
+  getSelectedItemIndex(): number {
+    return this.selectedItemIndex;
+  }
+
+  setSelectedItemIndex(index: number): void {
+    this.selectedItemIndex = index;
   }
 }

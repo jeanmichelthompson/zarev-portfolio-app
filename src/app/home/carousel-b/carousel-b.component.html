@@ -3,10 +3,11 @@
     <div #carousel class="carousel">
       <div class="carousel__cell" *ngFor="let item of carouselItems; let i = index">
         <img
+          #img
           [src]="item.image"
           alt="Carousel item image"
           (click)="onImageClick($event.target, item.url)">
-      <div>
+      <div #title>
         <div class="carousel__cell-title">{{ item.title }}</div>
         <div class="carousel__cell-viewcount">{{ item.viewCount }} views</div>
       </div>
