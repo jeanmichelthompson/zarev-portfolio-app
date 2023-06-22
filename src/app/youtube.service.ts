@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, of } from 'rxjs';
+import { environment } from 'environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class YoutubeService {
-  private apiKey = 'AIzaSyAnBRedmGaKDo-f73XxolmSVzuaIjkTKM0';
+  private apiKey = environment.youtubeApiKey;
   private apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
   public videoStatsCache: { [videoId: string]: any } = {};
 
