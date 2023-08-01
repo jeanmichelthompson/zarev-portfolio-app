@@ -16,6 +16,7 @@
   background:rgba(255,255,255,.02);
   border: 1px solid rgba(255,255,255,.08);
   border-radius: 20px;
+  overflow: hidden;
 }
 
 .work-content h2 {
@@ -35,6 +36,7 @@ a {
 .work-items {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
 }
 
 .work-item {
@@ -125,7 +127,7 @@ img {
   }
 
   .work-item-details h3 {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .work-item-details p {

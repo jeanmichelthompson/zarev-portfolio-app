@@ -53,6 +53,14 @@ export class CarouselBComponent {
       likes: "32,000",
     },
     {
+      image: 'assets/Aircraft Carriers.png',
+      title: 'Why US Navy Has Two Distinct Types of Aircraft Carriers',
+      viewCount: "300,000",
+      url: 'https://www.youtube.com/watch?v=7RgoBRDKkpI&t=5s&ab_channel=NotWhatYouThink',
+      videoID: "7RgoBRDKkpI",
+      likes: "10,000",
+    },
+    {
       image: 'assets/BunkersOnSled.png',
       title: 'Bunkers on Sled are Bonkers!',
       viewCount: "330,000",
