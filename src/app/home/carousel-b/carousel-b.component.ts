@@ -54,7 +54,7 @@ export class CarouselBComponent {
     },
     {
       image: 'assets/Aircraft Carriers.png',
-      title: 'Why US Navy Has Two Distinct Types of Aircraft Carriers',
+      title: 'Why US Navy Has Two Types of Carriers',
       viewCount: "300,000",
       url: 'https://www.youtube.com/watch?v=7RgoBRDKkpI&t=5s&ab_channel=NotWhatYouThink',
       videoID: "7RgoBRDKkpI",
